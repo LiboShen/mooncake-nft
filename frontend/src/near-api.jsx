@@ -26,10 +26,8 @@ export async function initContract() {
     window.walletConnection.account(),
     nearConfig.contractName,
     {
-      // View methods are read only. They don't modify the state, but usually return some value.
-      viewMethods: ["get_greeting"],
-      // Change methods can modify the state. But you don't receive the returned value when called.
-      changeMethods: ["set_greeting"],
+      viewMethods: ["nft_tokens_for_owner"],
+      changeMethods: ["nft_mint_2022"],
     }
   );
 }
@@ -48,14 +46,11 @@ export function signInWithNearWallet() {
   window.walletConnection.requestSignIn(nearConfig.contractName);
 }
 
-export async function setGreetingOnContract(message) {
-  let response = await window.contract.set_greeting({
-    args: { message: message },
+export async function nftMint2022(receiver_id) {
+  let response = await window.contract.nft_mint_2022({
+    args: { receiver_id: receiver_id },
+    amount: "1000000000000000000000000",
   });
+  console.log(response);
   return response;
-}
-
-export async function getGreetingFromContract() {
-  let greeting = await window.contract.get_greeting();
-  return greeting;
 }
