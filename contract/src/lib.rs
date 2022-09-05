@@ -108,6 +108,10 @@ impl Contract {
 
     #[payable]
     pub fn nft_mint_2022(&mut self, receiver_id: AccountId) -> Token {
+        assert!(
+            env::attached_deposit() >= 1000000000000000000000000,
+            "In sufficient deposit amount"
+        );
         let seed = near_sdk::env::random_seed();
         let token_id = format!(
             "2022-{}",
