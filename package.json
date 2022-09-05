@@ -5,6 +5,7 @@
   "scripts": {
     "start": "cd frontend && yarn start",
     "deploy": "yarn build:contract && cd contract && near dev-deploy --wasmFile ./target/wasm32-unknown-unknown/release/mooncake_nft.wasm",
+    "deploy_testnet": "yarn build:contract && cd contract && near deploy --wasmFile ./target/wasm32-unknown-unknown/release/mooncake_nft.wasm --accountId mooncakenft.testnet",
     "preview": "cd frontend && yarn vite preview",
     "build": "yarn build:contract && yarn build:web",
     "build:web": "cd frontend && yarn build",

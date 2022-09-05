@@ -4,8 +4,8 @@
   "license": "(MIT AND Apache-2.0)",
   "scripts": {
     "start": "env-cmd -f ../contract/neardev/dev-account.env vite",
-    "build": "env-cmd -f ../contract/neardev/dev-account.env vite build",
-    "build_testnet": "env-cmd -f ../contract/neardev/dev-account.env vite build -m testnet"
+    "build": "CONTRACT_NAME=mooncakenft.near vite build",
+    "build_testnet": "CONTRACT_NAME=mooncakenft.testnet vite build -m testnet"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
