@@ -26,7 +26,7 @@ export async function initContract() {
     window.walletConnection.account(),
     nearConfig.contractName,
     {
-      viewMethods: ["nft_tokens_for_owner"],
+      viewMethods: ["nft_tokens_for_owner", "top_rank"],
       changeMethods: ["nft_mint_2022"],
     }
   );
@@ -53,4 +53,11 @@ export async function nftMint2022(receiver_id) {
   });
   console.log(response);
   return response;
+}
+
+export async function topRank() {
+  let rank = await window.contract.top_rank({
+    args: {},
+  });
+  return rank;
 }

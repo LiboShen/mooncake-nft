@@ -19,14 +19,21 @@ export default function Header() {
             </a>
 
             <a
-              href="#"
+              href="/karmaboard"
               className="text-base font-medium text-white hover:text-indigo-50"
             >
-              🗳 Governance
+              🍀 Karma
             </a>
 
+            {/* <a */}
+            {/*   href="#" */}
+            {/*   className="text-base font-medium text-white hover:text-indigo-50" */}
+            {/* > */}
+            {/*   🗳 Governance */}
+            {/* </a> */}
+
             <a
-              href="#"
+              href="/about"
               className="text-base font-medium text-white hover:text-indigo-50"
             >
               🏔️ About
@@ -46,14 +53,21 @@ export default function Header() {
         </a>
 
         <a
-          href="#"
+          href="/karmaboard"
           className="text-base font-medium text-white hover:text-indigo-50"
         >
-          🗳 Governance
+          🍀 Karma
         </a>
 
+        {/* <a */}
+        {/*   href="#" */}
+        {/*   className="text-base font-medium text-white hover:text-indigo-50" */}
+        {/* > */}
+        {/*   🗳 Governance */}
+        {/* </a> */}
+
         <a
-          href="#"
+          href="/about"
           className="text-base font-medium text-white hover:text-indigo-50"
         >
           🏔️ About

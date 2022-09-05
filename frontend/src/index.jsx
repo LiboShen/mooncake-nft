@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import Home from "./Home";
 import NftPage from "./NftPage";
+import KarmaboardPage from "./KarmaboardPage";
+import AboutPage from "./AboutPage";
 import { initContract } from "./near-api";
 
 const reactRoot = createRoot(document.querySelector("#root"));
@@ -17,6 +19,8 @@ window.nearInitPromise = initContract()
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />
             <Route path="nft" element={<NftPage />} />
+            <Route path="karmaboard" element={<KarmaboardPage />} />
+            <Route path="about" element={<AboutPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
