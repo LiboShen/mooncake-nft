@@ -7,7 +7,6 @@ export default function KarmaboardPage() {
   React.useEffect(() => {
     topRank().then((r) => setRank((_) => r));
   }, []);
-  console.log(rank);
 
   return (
     <div>
