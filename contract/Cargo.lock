@@ -504,7 +504,6 @@ checksum = "8452105ba047068f40ff7093dd1d9da90898e63dd61736462e9cdda6a90ad3c3"
 name = "mooncake_nft"
 version = "1.0.0"
 dependencies = [
- "bs58",
  "near-contract-standards",
  "near-sdk",
  "uint",
