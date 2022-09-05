@@ -1,8 +1,10 @@
 import React from "react";
 import { signInWithNearWallet, nftMint2022 } from "./near-api";
+import facaiUrl from "/assets/facai.svg";
+import { glitchFacaiUrls } from "./NftImages";
 
 export default function NftPage() {
-  let [imageSrc, setImageSrc] = React.useState("/assets/facai.svg");
+  let [imageSrc, setImageSrc] = React.useState(facaiUrl);
 
   return (
     <div>
@@ -12,9 +14,13 @@ export default function NftPage() {
           <img
             onMouseEnter={(_) => {
               let i = Math.floor(Math.random() * 10);
-              setImageSrc((_) => `/assets/e_${i}.svg`);
+              setImageSrc((_) => glitchFacaiUrls[i]);
             }}
-            onMouseLeave={(_) => setImageSrc((_) => "/assets/facai.svg")}
+            onClick={(_) => {
+              let i = Math.floor(Math.random() * 10);
+              setImageSrc((_) => glitchFacaiUrls[i]);
+            }}
+            onMouseLeave={(_) => setImageSrc((_) => facaiUrl)}
             className="h-96 w-96  border rounded-md border-white"
             src={imageSrc}
             alt=""
@@ -22,10 +28,12 @@ export default function NftPage() {
           <div className="text-xl">恭喜发财</div>
         </div>
         <div className="flex-1">
-          <div className="text-base font-medium mb-8">
-            In 2022, the mooncake NFT got some problems, just like the crypto
-            market. <br />
-            The Hanzi gets distorted when you mint a new mooncake. <br />
+          <div className="text-lg mb-8">
+            In 2022, just like the crypto market, the mooncake NFT got some
+            serious problems: <br />
+            the Hanzi gets distorted when you mint a new mooncake. It's
+            different every time.
+            <br />
             <i>Maybe it's not a glitch, but a feature?</i>
           </div>
           <div className="text-lg font-medium mb-4">1 NEAR (Ⓝ)</div>

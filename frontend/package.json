@@ -4,7 +4,8 @@
   "license": "(MIT AND Apache-2.0)",
   "scripts": {
     "start": "env-cmd -f ../contract/neardev/dev-account.env vite",
-    "build": "vite build"
+    "build": "env-cmd -f ../contract/neardev/dev-account.env vite build",
+    "build_testnet": "env-cmd -f ../contract/neardev/dev-account.env vite build -m testnet"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",

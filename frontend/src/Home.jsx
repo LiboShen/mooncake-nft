@@ -1,4 +1,6 @@
 import React from "react";
+import { glitchFacaiUrls } from "./NftImages";
+import hashNutsUrl from "/assets/hashnuts.png";
 
 export default function App() {
   return (
@@ -31,56 +33,42 @@ export default function App() {
       </div>
       <div className="text-3xl mb-4">
         <a href="/nft">Edition #2022: A Glitch or a Feature?</a>
-        <div className="text-sm  mb-8">
-          In 2022, the mooncake NFT got some problems, just like the crypto
-          market. <br />
-          The Hanzi gets distorted when you mint a new mooncake. It's different
-          every time.
-          <br />
-          <i>Maybe it's not a glitch, but a feature?</i>
-        </div>
+      </div>
+      <div className="text-sm  mb-8">
+        In 2022, just like the crypto market, the mooncake NFT got some serious
+        problems: <br />
+        the Hanzi gets distorted when you mint a new mooncake. It's different
+        every time.
+        <br />
+        <i>Is it a glitch, or a feature?</i>
       </div>
       <a href="/nft">
-        <div className="grid gap-4 mb-8 grid-cols-1 grid-rows-6 sm:grid-cols-2 sm:grid-rows-3 lg:grid-cols-3 lg:grid-rows-2">
-          <img
-            className="h-72 w-72 border rounded-md border-white mx-auto"
-            src="/assets/e_0.svg"
-            alt=""
-          />
-          <img
-            className="h-72 w-72 border rounded-md border-white mx-auto"
-            src="/assets/e_1.svg"
-            alt=""
-          />
-          <img
-            className="h-72 w-72 border rounded-md border-white mx-auto"
-            src="/assets/e_2.svg"
-            alt=""
-          />
-          <img
-            className="h-72 w-72 border rounded-md border-white mx-auto"
-            src="/assets/e_3.svg"
-            alt=""
-          />
-          <img
-            className="h-72 w-72 border rounded-md border-white mx-auto"
-            src="/assets/e_4.svg"
-            alt=""
-          />
-          <img
-            className="h-72 w-72 border rounded-md border-white mx-auto"
-            src="/assets/e_5.svg"
-            alt=""
-          />
+        <div className="grid gap-4 mb-8 grid-cols-1 grid-rows-3 sm:grid-cols-2 sm:grid-rows-3 lg:grid-cols-3 lg:grid-rows-2">
+          {glitchFacaiUrls.slice(0, 6).map((url, i) => (
+            <img
+              key={i}
+              className={
+                "h-72 w-72 border rounded-md border-white mx-auto" +
+                (i >= 3 ? " hidden sm:block" : "")
+              }
+              src={url}
+            />
+          ))}
         </div>
+      </a>
+      <a
+        className="inline-block rounded-md border border-transparent bg-indigo-500 py-2 px-4 text-lg font-medium text-white hover:bg-opacity-75 mx-auto mb-8"
+        href="/nft"
+      >
+        {" "}
+        Go to the NFT page{" "}
       </a>
       <div className="text-3xl mb-4">See more past editions</div>
       <div className="text-2xl mb-4">Edition #2021</div>
       <div className="flex flex-row mb-8 space-x-4 justify-between items-start">
         <img
           className="h-72 w-72 border rounded-md border-white mx-auto"
-          src="/assets/Hash Nuts.png"
-          alt=""
+          src={hashNutsUrl}
         />
       </div>
     </>
