@@ -60,10 +60,9 @@ export default function App() {
         className="inline-block rounded-md border border-transparent bg-indigo-500 py-2 px-4 text-lg font-medium text-white hover:bg-opacity-75 mx-auto mb-8"
         href="/nft"
       >
-        {" "}
-        Go to the NFT page{" "}
+        Get my Mooncake NFT
       </a>
-      <div className="text-3xl mb-4">See more past editions</div>
+      <div className="text-3xl mb-4">Past editions</div>
       <div className="text-2xl mb-4">Edition #2021</div>
       <div className="flex flex-row mb-8 space-x-4 justify-between items-start">
         <img
