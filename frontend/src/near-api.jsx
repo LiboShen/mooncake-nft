@@ -2,7 +2,7 @@ import "near-api-js/dist/near-api-js.min.js";
 const { connect, Contract, keyStores, WalletConnection } = window.nearApi;
 import { getConfig } from "./near-config";
 
-const nearConfig = getConfig(import.meta.env.MODE || "development");
+export const nearConfig = getConfig(import.meta.env.MODE || "development");
 
 // Initialize contract & set global variables
 export async function initContract() {

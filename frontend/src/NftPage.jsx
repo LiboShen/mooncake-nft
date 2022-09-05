@@ -1,13 +1,40 @@
 import React from "react";
 import { signInWithNearWallet, nftMint2022 } from "./near-api";
 import facaiUrl from "/assets/facai.svg";
+import { nearConfig } from "./near-api";
 import { glitchFacaiUrls } from "./NftImages";
 
 export default function NftPage() {
   let [imageSrc, setImageSrc] = React.useState(facaiUrl);
+  let [txHash, setTxHash] = React.useState("");
+  React.useEffect(() => {
+    let search = window.location.search;
+    if (search.startsWith("?transactionHashes=")) {
+      setTxHash((_) => search.split("=")[1]);
+    }
+  }, []);
 
   return (
     <div>
+      {txHash != "" ? (
+        <div className="p-2 bg-green-600 rounded-md mb-8 text-center">
+          🎉 The{" "}
+          <a
+            className="underline"
+            href={nearConfig.explorerUrl + "/transactions/" + txHash}
+          >
+            transaction
+          </a>{" "}
+          is sent. The NFT should show up in your{" "}
+          <a
+            className="underline"
+            href={nearConfig.walletUrl + "?tab=collectibles"}
+          >
+            wallet
+          </a>{" "}
+          soon! 🥮
+        </div>
+      ) : null}
       <div className="text-3xl mb-4">Edition #2022</div>
       <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 justify-between">
         <div className="flex-1 mx-auto">
