@@ -106,6 +106,15 @@ impl Contract {
         }
     }
 
+    pub fn reset_karma(&mut self) {
+        assert_eq!(
+            env::predecessor_account_id(),
+            self.tokens.owner_id,
+            "Unauthorized"
+        );
+        self.karma = karma::Karma::new(StorageKey::Karma, StorageKey::KarmaQuota);
+    }
+
     /// Mint a new token with ID=`token_id` belonging to `receiver_id`.
     ///
     /// Since this example implements metadata, it also requires per-token metadata to be provided

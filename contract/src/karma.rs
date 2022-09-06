@@ -74,7 +74,7 @@ impl Karma {
 
         let rank_min = self.rank.get(0).map_or(0, |item| item.0);
         if balance >= rank_min {
-            for i in 1..self.rank.len() {
+            for i in 0..self.rank.len() {
                 if account_id.eq(&self.rank[i].1) {
                     self.rank[i].0 = balance;
                     self.rank.sort();
@@ -140,7 +140,7 @@ mod tests {
     }
 
     #[test]
-    fn test_rank_update() {
+    fn test_rank_overflow() {
         let mut karma = Karma::new(b"a", b"b");
         for i in 1..12 {
             for j in 0..i {
@@ -162,5 +162,15 @@ mod tests {
                 (11, accounts(11))
             ]
         );
+    }
+
+    #[test]
+    fn test_rank_update() {
+        let mut karma = Karma::new(b"a", b"b");
+        karma.increase(&accounts(0), &format!("test_token_{}", 0));
+        karma.increase(&accounts(1), &format!("test_token_{}", 1));
+        karma.increase(&accounts(0), &format!("test_token_{}", 0));
+        karma.increase(&accounts(1), &format!("test_token_{}", 1));
+        assert_eq!(karma.rank, vec![(2, accounts(0)), (2, accounts(1)),]);
     }
 }
