@@ -72,21 +72,27 @@ impl Karma {
         balance += 1;
         self.balance_by_owner.insert(account_id, &balance);
 
+        for i in 0..self.rank.len() {
+            if account_id.eq(&self.rank[i].1) {
+                self.rank[i].0 = balance;
+                self.rank.sort();
+                return;
+            }
+        }
+
+        if self.rank.len() < RANK_MAX {
+            self.rank.push((balance, account_id.clone()));
+            self.rank.sort();
+            return;
+        }
+
         let rank_min = self.rank.get(0).map_or(0, |item| item.0);
         if balance >= rank_min {
-            for i in 0..self.rank.len() {
-                if account_id.eq(&self.rank[i].1) {
-                    self.rank[i].0 = balance;
-                    self.rank.sort();
-                    return;
-                }
-            }
-            if self.rank.len() < RANK_MAX {
-                self.rank.push((balance, account_id.clone()))
-            } else if balance > rank_min {
+            if balance > rank_min {
                 self.rank[0] = (balance, account_id.clone());
             }
             self.rank.sort();
+            return;
         }
     }
 
@@ -172,5 +178,15 @@ mod tests {
         karma.increase(&accounts(0), &format!("test_token_{}", 0));
         karma.increase(&accounts(1), &format!("test_token_{}", 1));
         assert_eq!(karma.rank, vec![(2, accounts(0)), (2, accounts(1)),]);
+    }
+
+    #[test]
+    fn test_rank_update_2() {
+        let mut karma = Karma::new(b"a", b"b");
+        karma.increase(&accounts(0), &format!("test_token_{}", 0));
+        karma.increase(&accounts(0), &format!("test_token_{}", 0));
+        karma.increase(&accounts(0), &format!("test_token_{}", 0));
+        karma.increase(&accounts(1), &format!("test_token_{}", 1));
+        assert_eq!(karma.rank, vec![(1, accounts(1)), (3, accounts(0)),]);
     }
 }
