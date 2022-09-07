@@ -21,6 +21,7 @@ export default function NftPage() {
           🎉 The{" "}
           <a
             className="underline"
+            target="_blank"
             href={nearConfig.explorerUrl + "/transactions/" + txHash}
           >
             transaction
@@ -28,6 +29,7 @@ export default function NftPage() {
           is sent. The NFT should show up in your{" "}
           <a
             className="underline"
+            target="_blank"
             href={nearConfig.walletUrl + "?tab=collectibles"}
           >
             wallet

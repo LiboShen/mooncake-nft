@@ -25,9 +25,12 @@ export default function App() {
           <div className="text-3xl font-serif">Mooncake NFT</div>
           <div className="text-base italic font-serif">noun</div>
           <div className="text-base">
-            a humble virtual (and on chain) Mooncake. Dairy free. Zero calories.
-            Keep you in a good mood when added to your wallet. Also a great gift
-            for your (crypto) friends.
+            a humble virtual (and{" "}
+            <a target="_blank" href="https://near.org/">
+              on chain
+            </a>
+            ) Mooncake. Dairy free. Zero calories. Keep you in a good mood when
+            added to your wallet. Also a great gift for your (crypto) friends.
           </div>
         </div>
       </div>
