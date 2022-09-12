@@ -7,6 +7,7 @@ import Home from "./Home";
 import NftPage from "./NftPage";
 import KarmaboardPage from "./KarmaboardPage";
 import AboutPage from "./AboutPage";
+import MyNftsPage from "./MyNftsPage";
 import { initContract } from "./near-api";
 
 const reactRoot = createRoot(document.querySelector("#root"));
@@ -21,6 +22,7 @@ window.nearInitPromise = initContract()
             <Route path="nft" element={<NftPage />} />
             <Route path="karmaboard" element={<KarmaboardPage />} />
             <Route path="about" element={<AboutPage />} />
+            <Route path="mynfts" element={<MyNftsPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

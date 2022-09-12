@@ -56,8 +56,13 @@ export async function nftMint2022(receiver_id) {
 }
 
 export async function topRank() {
-  let rank = await window.contract.top_rank({
-    args: {},
-  });
+  let rank = await window.contract.top_rank({});
   return rank;
+}
+
+export async function myTokens() {
+  let tokens = await window.contract.nft_tokens_for_owner({
+    account_id: window.accountId,
+  });
+  return tokens;
 }
