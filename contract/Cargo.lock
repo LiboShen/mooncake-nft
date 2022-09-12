@@ -505,6 +505,7 @@ name = "mooncake_nft"
 version = "1.0.0"
 dependencies = [
  "near-contract-standards",
+ "near-crypto 0.14.0",
  "near-sdk",
  "uint",
 ]
@@ -514,6 +515,16 @@ name = "near-account-id"
 version = "0.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "de83d74a9241be8cc4eb3055216966b58bf8c463e8e285c0dc553925acdd19fa"
+dependencies = [
+ "borsh",
+ "serde",
+]
+
+[[package]]
+name = "near-account-id"
+version = "0.14.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "71d258582a1878e6db67400b0504a5099db85718d22c2e07f747fe1706ae7150"
 dependencies = [
  "borsh",
  "serde",
@@ -545,7 +556,33 @@ dependencies = [
  "derive_more",
  "ed25519-dalek",
  "libc",
- "near-account-id",
+ "near-account-id 0.13.0",
+ "once_cell",
+ "parity-secp256k1",
+ "primitive-types",
+ "rand 0.7.3",
+ "rand_core 0.5.1",
+ "serde",
+ "serde_json",
+ "subtle",
+ "thiserror",
+]
+
+[[package]]
+name = "near-crypto"
+version = "0.14.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1e75673d69fd7365508f3d32483669fe45b03bfb34e4d9363e90adae9dfb416c"
+dependencies = [
+ "arrayref",
+ "blake2",
+ "borsh",
+ "bs58",
+ "c2-chacha",
+ "curve25519-dalek",
+ "derive_more",
+ "ed25519-dalek",
+ "near-account-id 0.14.0",
  "once_cell",
  "parity-secp256k1",
  "primitive-types",
@@ -570,7 +607,7 @@ dependencies = [
  "derive_more",
  "easy-ext",
  "hex",
- "near-crypto",
+ "near-crypto 0.13.0",
  "near-primitives-core",
  "near-rpc-error-macro",
  "near-vm-errors",
@@ -596,7 +633,7 @@ dependencies = [
  "borsh",
  "bs58",
  "derive_more",
- "near-account-id",
+ "near-account-id 0.13.0",
  "num-rational",
  "serde",
  "sha2 0.10.2",
@@ -634,7 +671,7 @@ dependencies = [
  "base64 0.13.0",
  "borsh",
  "bs58",
- "near-crypto",
+ "near-crypto 0.13.0",
  "near-primitives",
  "near-primitives-core",
  "near-sdk-macros",
@@ -670,7 +707,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0e02faf2bc1f6ef82b965cfe44389808fb5594f7aca4b596766117f4ce74df20"
 dependencies = [
  "borsh",
- "near-account-id",
+ "near-account-id 0.13.0",
  "near-rpc-error-macro",
  "serde",
 ]
@@ -685,8 +722,8 @@ dependencies = [
  "borsh",
  "bs58",
  "byteorder",
- "near-account-id",
- "near-crypto",
+ "near-account-id 0.13.0",
+ "near-crypto 0.13.0",
  "near-primitives",
  "near-primitives-core",
  "near-vm-errors",
